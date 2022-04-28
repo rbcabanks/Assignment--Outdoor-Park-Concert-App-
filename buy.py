@@ -3,8 +3,9 @@ import jsonpickle
 from collections import Counter
 
 occurrences=0
-lst=[]
+
 def open_json():
+
     file_name='new_file.json'
     try:
         newfile = open(file_name, "r")
@@ -17,14 +18,15 @@ def open_json():
     # close the file
     newfile.close()
     # decode json into an object
-    newfile=jsonpickle.decode(file_data)
+    newlist=jsonpickle.decode(file_data)
+
+    return newlist
  
 
 def toJson():
     global occurrences
-    global list
+
     Dict = {}
-    #Dict = dict.fromkeys(['SeatType', 'NumberOfTickets', 'Price','Rows'])
     print("""
         Seat Types:
             Front Seat with price $80.  Rows 0 - 4
@@ -32,6 +34,9 @@ def toJson():
             Back Seat with price $25.  Rows 11-19")
             -------------------------------------------
             """)
+
+    # user input
+    name=input('What is your name?')
     print('CHOOSE A SEAT TYPE: Front, Middle or Back')
     mySeatType = input('Seat Type: ') 
     if not ("Front" in mySeatType or "front" in mySeatType or "back" in mySeatType or "Back" in mySeatType or "middle" in mySeatType or "Middle" in mySeatType):
@@ -43,6 +48,8 @@ def toJson():
     seatPrice=0
     rows=""
 
+
+    #evaluating the price and rows based on user inpput
     if(("Front" in mySeatType) or ("front" in mySeatType)):
         seatPrice=80
         rows=rows+("0-4")
@@ -59,34 +66,36 @@ def toJson():
     myPrice= (myPrice *(1+float(num)/100))
     myPrice=myPrice+5
 
+    #setting values for the dictionary item 
     Dict= {
+        "Name":name,
         "SeatType":mySeatType,
         "NumberOfTickets": myNumberOfTickets,
         "Price": myPrice,
         "Rows":rows
     }
 
-    # load the first element
+    # load the elements into the json file
     lst=[]
-    file_name = 'new_file.json'
+    #file_name = 'new_file.json'
 
+    #if there is already an entry
+    if(occurrences!=0):
+        for elems in open_json():
+            lst.append(elems)
     lst.append(Dict)
 
-    with open(file_name, 'w') as f:
+    #dump the list into the json file 
+    with open('new_file.json', 'w') as f:
         json.dump(lst, f, 
             indent=4,  
             separators=(',',': '))
 
     occurrences=occurrences+1
-    """
-    Dict['SeatType'] = [mySeatType]
-    Dict['NumberOfTickets'] = [myNumberOfTickets]
-    Dict['Price'] = [myPrice]
-    Dict['Rows'] = [rows]
-"""
 
+    # printing the reciept
     print('--------Reciept--------')
-    print('Thank you for your order')
+    print('Thank you for your order' + name)
     print('Seat Type: '+mySeatType)
     print('Number of Tickets: '+myNumberOfTickets)
     print('x Price Per Ticket: $' +str(seatPrice))
