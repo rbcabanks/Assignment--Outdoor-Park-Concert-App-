@@ -3,6 +3,7 @@ import json
 import jsonpickle
 import buy as buy
 
+#-----------------------------------------------------------------------------
 def printAll():
     lst=[]
     if(buy.occurrences!=0):

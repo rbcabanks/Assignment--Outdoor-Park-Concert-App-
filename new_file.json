@@ -1,16 +1,23 @@
 [
     {
-        "Name": "Front Seat",
-        "SeatType": "Front",
-        "NumberOfTickets": "2",
-        "Price": 176.6,
-        "Rows": "0-4"
+        "Name": "front",
+        "SeatType": "front",
+        "NumberOfTickets": "10",
+        "Price": 863.0,
+        "Rows": 1
     },
     {
-        "Name": "Middle",
-        "SeatType": "Middle",
-        "NumberOfTickets": "4",
-        "Price": 219.5,
-        "Rows": "5-10"
+        "Name": "fron",
+        "SeatType": "front",
+        "NumberOfTickets": "10",
+        "Price": 863.0,
+        "Rows": 1
+    },
+    {
+        "Name": "front",
+        "SeatType": "front",
+        "NumberOfTickets": "10",
+        "Price": 863.0,
+        "Rows": 1
     }
 ]

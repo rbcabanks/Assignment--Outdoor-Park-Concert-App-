@@ -1,6 +1,6 @@
 import io
 
-import outdoorParkConcertExample as outdoorParkConcertExample
+import view as view
 import buy as buy
 import display as display
 import search as search
@@ -12,6 +12,7 @@ dist,x,y,dx,dy=-1,-1,-1,-1,-1
     Module: gladysUserInterface
     Description: This module provides the user with an easy UX that asks for an input value that directs them to different functions.
 """
+#-----------------------------------------------------------------------------
 # the user interface section
 def header():
     print(' ')
@@ -26,7 +27,7 @@ def header():
     print("[Q]uit")
     print("---------------------------------------")
 
-
+#-----------------------------------------------------------------------------
 # the code that interprets the user input
 def runApp():
     guest_list=[]
@@ -51,7 +52,7 @@ def runApp():
 
         elif firstChar == 'v':
             print('[V]iew/display available seating')
-            outdoorParkConcertExample.print_matrix()
+            view.print_matrix()
 
         elif firstChar == 'b':
             print('[B]uy/purchase a ticket and provide receipt with  state tax of 7.25% including an additional mandatory mask fee of $5.00')

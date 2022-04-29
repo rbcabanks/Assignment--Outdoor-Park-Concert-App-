@@ -3,6 +3,7 @@ import jsonpickle
 from collections import Counter
 
 occurrences=0
+#-----------------------------------------------------------------------------
 
 def open_json():
 
@@ -22,6 +23,7 @@ def open_json():
 
     return newlist
  
+#-----------------------------------------------------------------------------
 
 def toJson():
     global occurrences
@@ -43,6 +45,7 @@ def toJson():
         print('Invalid response, try again!')
         mySeatType = input('Seat Type: ') 
 
+    Rows=0
     myNumberOfTickets = input('NUMBER OF TICKETS : ')   
     myPrice=0
     seatPrice=0
@@ -52,13 +55,13 @@ def toJson():
     #evaluating the price and rows based on user inpput
     if(("Front" in mySeatType) or ("front" in mySeatType)):
         seatPrice=80
-        rows=rows+("0-4")
+        Rows=1
     elif(("middle" in mySeatType) or ("Middle" in mySeatType)):
         seatPrice=50
-        rows=rows+("5-10")
+        Rows=2
     elif(("back" in mySeatType) or ("Back" in mySeatType)):
         seatPrice=25
-        rows=rows+("11-19")
+        Rows=3
     
     myPrice=seatPrice*int(myNumberOfTickets)
     num=7.25
@@ -72,7 +75,7 @@ def toJson():
         "SeatType":mySeatType,
         "NumberOfTickets": myNumberOfTickets,
         "Price": myPrice,
-        "Rows":rows
+        "Rows": Rows
     }
 
     # load the elements into the json file
