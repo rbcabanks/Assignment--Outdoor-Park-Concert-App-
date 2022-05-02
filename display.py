@@ -20,7 +20,7 @@ def printAll():
         print("Seat Type: "+str(record['SeatType']))
         print("Number of Tickets: #" + str(record['NumberOfTickets']))
         print("Total Price: $" + str(record['Price']))
-        print("Rows: #"+str(record['Rows']))
+        #print("Rows: #"+str(record['Rows']))
         print(" ")
         counter=counter+1
 

@@ -107,39 +107,3 @@ def toJson():
     print('-------Total Price-------')
     print('$'+str(myPrice))
 
-"""
-    lst=[]
-    # Serializing json 
-    #json_object = json.dumps(lst, indent = 4)    
-        # create a document
-    
-    filename = 'new_file.json'
-    
-
-    else:
-        print("Here")
-        write_json(Dict)
-
-
-    lst.append(Dict)
-    with open(filename, 'w') as f:
-        json.dump(lst, f, 
-            indent=4,  
-            separators=(',',': '))
-        #json.dumps(lst)
-
-    #print("list: ")
-    #lst.append(Dict)
-    #print(lst)
-
-
-    # read the whole json file into a variable
-    # Writing to sample.json
-
-    with open('new_file.json', "w") as json_file:
-        json.dump(lst, json_file, 
-            indent=4,  
-            separators=(',',': '))
-    
-
- """

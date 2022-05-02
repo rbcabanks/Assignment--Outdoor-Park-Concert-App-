@@ -133,21 +133,3 @@ def print_matrix():
 
     loop(n_row,n_col,third2-1,n_row,"B",numlst3,seating)
 
-
-    """ 
-    for r in range(third2,n_row):
-        print(r)
-        row3 = []
-        for c in range(n_col):
-            row3.append(available_seat)
-        seating.append(row3)
-    
-    
-    
-    
-    for r in range(n_row):
-        print(r+1, end="\t")
-        for c in range(n_col):
-            print(seating[r][c], end=" ")
-        print()
-    """

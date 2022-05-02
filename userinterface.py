@@ -1,5 +1,5 @@
 import io
-
+import jsonpickle
 import view as view
 import buy as buy
 import display as display
@@ -12,6 +12,35 @@ dist,x,y,dx,dy=-1,-1,-1,-1,-1
     Module: gladysUserInterface
     Description: This module provides the user with an easy UX that asks for an input value that directs them to different functions.
 """
+#-----------------------------------------------------------------------------
+def save_file(guest_lst):
+    # save a file name cupcake-output.json to disk
+
+    #
+    # write a object as json to disk
+    #
+
+    # attempt to write a file
+    file_name = "new_file.json"
+    try:
+        guest_file = open(file_name, "w")
+    except IOError:
+        print("Error: File " + file_name + " does not appear to exist.")
+        return -1
+    
+
+    # encode object into a json string
+    guest_json = jsonpickle.encode(guest_lst)
+
+    # write file
+    guest_file .write(guest_json)
+
+    # close file
+    guest_file .close()
+
+    print("The %s file has been opened and saved to disk." % (file_name))
+
+
 #-----------------------------------------------------------------------------
 # the user interface section
 def header():
@@ -31,7 +60,7 @@ def header():
 # the code that interprets the user input
 def runApp():
     guest_list=[]
-    guest_list=buy.open_json
+    guest_list=buy.open_json()
 
     header()
     userQuit = False
@@ -68,6 +97,7 @@ def runApp():
         else:
             print("ERROR: " + firstChar + " is not a valid command")
 
+    save_file(guest_list)
     print("\n")
     print("Thank you for using the Outdoor Park Concert App!")
     print("\n")
