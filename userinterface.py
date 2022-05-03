@@ -6,13 +6,6 @@ import buy as buy
 import display as display
 import search as search
 
-dist,x,y,dx,dy=-1,-1,-1,-1,-1
-
-"""
-    Student: Rebecca Banks
-    Module: gladysUserInterface
-    Description: This module provides the user with an easy UX that asks for an input value that directs them to different functions.
-"""
 def pretty_json(json_string):
     """
     turns json into pretty printed json
