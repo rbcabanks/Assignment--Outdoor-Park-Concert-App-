@@ -22,6 +22,7 @@ def search():
         if (name in elems['Name']):
             print("---------------------------")
             print("Name: "+str(elems['Name']))
+            print("Email: "+str(elems['Email']))
             print("Seat Type: "+str(elems['SeatType']))
             print("Number of Tickets: #" + str(elems['NumberOfTickets']))
             print("Total Price: $" + str(elems['Price']))

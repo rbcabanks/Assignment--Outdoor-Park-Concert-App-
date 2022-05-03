@@ -39,6 +39,11 @@ def toJson():
 
     # user input
     name=input('What is your name?')
+    email=input('What is your email address?')
+    if not("@" in email):
+        print("Invalid response, try again!")
+        email=input('What is your email address?')
+
     print('CHOOSE A SEAT TYPE: Front, Middle or Back')
     mySeatType = input('Seat Type: ') 
     if not ("Front" in mySeatType or "front" in mySeatType or "back" in mySeatType or "Back" in mySeatType or "middle" in mySeatType or "Middle" in mySeatType):
@@ -50,7 +55,6 @@ def toJson():
     myPrice=0
     seatPrice=0
     rows=""
-
 
     #evaluating the price and rows based on user inpput
     if(("Front" in mySeatType) or ("front" in mySeatType)):
@@ -72,6 +76,7 @@ def toJson():
     #setting values for the dictionary item 
     Dict= {
         "Name":name,
+        "Email":email,
         "SeatType":mySeatType,
         "NumberOfTickets": myNumberOfTickets,
         "Price": myPrice,
@@ -83,9 +88,11 @@ def toJson():
     #file_name = 'new_file.json'
 
     #if there is already an entry
-    if(occurrences!=0):
-        for elems in open_json():
-            lst.append(elems)
+    
+    #if you want the page to refresh each time... 
+    # if(occurrences!=0):
+    for elems in open_json():
+        lst.append(elems)
     lst.append(Dict)
 
     #dump the list into the json file 
@@ -99,6 +106,7 @@ def toJson():
     # printing the reciept
     print('--------Reciept--------')
     print('Thank you for your order' + name)
+    print('Email provided' + email)
     print('Seat Type: '+mySeatType)
     print('Number of Tickets: '+myNumberOfTickets)
     print('x Price Per Ticket: $' +str(seatPrice))
@@ -106,4 +114,3 @@ def toJson():
     print('+ Added additional mandatory mask fee of $5.00')
     print('-------Total Price-------')
     print('$'+str(myPrice))
-
