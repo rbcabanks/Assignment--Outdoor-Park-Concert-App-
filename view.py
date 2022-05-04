@@ -5,9 +5,10 @@ import buy as buy
 
 
 """
-This example code creates a 2d list (2d matrix) that can store seating.
+This code creates a 2d list (2d matrix) that can store seating.
 The matrix is populated with a since all seats are available
 """
+
 #-----------------------------------------------------------------------------
 def loop(n_row,n_col,range1,range2,val,numlst,seating):
     # available + taken seat
@@ -19,6 +20,7 @@ def loop(n_row,n_col,range1,range2,val,numlst,seating):
         print(val,r, end="\t")
         row1=[]
 
+        #checks to make sure there is a row in between by only looking for even number rows and row 0 
         if (r == 0 or (r % 2==0)):
             #looping through and creating the matrix for the front 4 rows
             for c in range(n_col):
