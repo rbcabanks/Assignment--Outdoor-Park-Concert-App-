@@ -4,7 +4,7 @@ from collections import Counter
 
 # created global variable so accessible in other pages if needed
 
-occurrences = 0
+# occurrences = 0
 # -----------------------------------------------------------------------------
 
 
@@ -30,6 +30,8 @@ def open_json():
 
 
 def to_json():
+    #global occurrences
+
     guest_dictionary = {}
     print("""
         Seat Types:
@@ -106,7 +108,7 @@ def to_json():
                   indent=4,
                   separators=(',', ': '))
 
-    occurrences = occurrences+1
+    #occurrences = occurrences+1
 
     # printing the reciept
     print('--------Reciept--------')

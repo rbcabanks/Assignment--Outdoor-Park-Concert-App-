@@ -6,6 +6,7 @@ import buy as buy
 import display as display
 import search as search
 
+
 def pretty_json(json_string):
     """
     turns json into pretty printed json
@@ -16,7 +17,9 @@ def pretty_json(json_string):
 
     return result
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+
 def save_file(guest_lst):
     # save a file name cupcake-output.json to disk
 
@@ -31,7 +34,6 @@ def save_file(guest_lst):
     except IOError:
         print("Error: File " + file_name + " does not appear to exist.")
         return -1
-    
 
     # encode object into a json string
     guest_json = jsonpickle.encode(guest_lst)
@@ -45,7 +47,7 @@ def save_file(guest_lst):
     print("The %s file has been opened and saved to disk." % (file_name))
 
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # the user interface section
 def header():
     print(' ')
@@ -60,8 +62,10 @@ def header():
     print("[Q]uit")
     print("---------------------------------------")
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # the code that interprets the user input
+
+
 def runApp():
     header()
     user_quit = False
@@ -89,7 +93,8 @@ def runApp():
             buy.to_json()
 
         elif first_char == 's':
-            print('[S]earch by name will display the tickets purchased by a user with a specific name.')
+            print(
+                '[S]earch by name will display the tickets purchased by a user with a specific name.')
             search.search()
 
         elif first_char == 'd':
@@ -98,11 +103,12 @@ def runApp():
         else:
             print("ERROR: " + first_char + " is not a valid command")
 
-    guest_list=[]
-    guest_list=buy.open_json()
+    guest_list = []
+    guest_list = buy.open_json()
     save_file(guest_list)
     print("\n")
     print("Thank you for using the Outdoor Park Concert App!")
     print("\n")
+
 
 runApp()
