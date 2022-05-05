@@ -25,7 +25,7 @@ def save_file(guest_lst):
     #
 
     # attempt to write a file
-    file_name = "new_file.json"
+    file_name = "guest_list.json"
     try:
         guest_file = open(file_name, "w")
     except IOError:
@@ -64,39 +64,39 @@ def header():
 # the code that interprets the user input
 def runApp():
     header()
-    userQuit = False
-    while (not userQuit):
+    user_quit = False
+    while (not user_quit):
 
         # menu
         header()
 
         # get first character of input
-        userInput = input("Enter a command:")
-        lowerInput = userInput.lower()
-        firstChar = lowerInput[0:1]
+        user_input = input("Enter a command:")
+        lower_input = user_input.lower()
+        first_char = lower_input[0:1]
 
         # quit
-        if firstChar == 'q':
+        if first_char == 'q':
             print('=====QUIT=====')
-            userQuit = True
+            user_quit = True
 
-        elif firstChar == 'v':
+        elif first_char == 'v':
             print('[V]iew/display available seating')
             view.print_matrix()
 
-        elif firstChar == 'b':
+        elif first_char == 'b':
             print('[B]uy/purchase a ticket and provide receipt with  state tax of 7.25% including an additional mandatory mask fee of $5.00')
-            buy.toJson()
+            buy.to_json()
 
-        elif firstChar == 's':
+        elif first_char == 's':
             print('[S]earch by name will display the tickets purchased by a user with a specific name.')
             search.search()
 
-        elif firstChar == 'd':
+        elif first_char == 'd':
             print('[D]isplay all purchases.')
-            display.printAll()
+            display.print_all()
         else:
-            print("ERROR: " + firstChar + " is not a valid command")
+            print("ERROR: " + first_char + " is not a valid command")
 
     guest_list=[]
     guest_list=buy.open_json()

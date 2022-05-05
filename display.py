@@ -3,8 +3,10 @@ import json
 import jsonpickle
 import buy as buy
 
-#-----------------------------------------------------------------------------
-def printAll():
+# -----------------------------------------------------------------------------
+
+
+def print_all():
 
     print("""
             Display
@@ -12,27 +14,25 @@ def printAll():
             -------------------------------------------
             """)
 
-    lst=[]
-    
+    guest_list = []
+
     for elems in buy.open_json():
-            lst.append(elems)
-    
-    counter=0
-    totalrev=0
-    for record in lst:
-        print(" ")
+        guest_list.append(elems)
+
+    counter = 0
+    total_revenue = 0
+    for record in guest_list:
+        print("\t")
         print("------ Guest: "+str(counter+1)+" ------")
         print("Name: "+str(record['Name']))
         print("Email: "+str(record['Email']))
         print("Seat Type: "+str(record['SeatType']))
         print("Number of Tickets: #" + str(record['NumberOfTickets']))
         print("Total Price: $" + str(record['Price']))
-        #print("Rows: #"+str(record['Rows']))
-        print(" ")
-        counter=counter+1
-        totalrev=totalrev+record['Price']
+        print("\t")
+        counter = counter+1
+        total_revenue = total_revenue+record['Price']
 
     print("-----------------")
     print("Total Revenue: ")
-    print("$"+str(totalrev))
-
+    print("$"+str(total_revenue))

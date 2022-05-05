@@ -3,7 +3,9 @@ import json
 import jsonpickle
 import buy as buy
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+
 def search():
     print("""
 
@@ -12,13 +14,17 @@ def search():
             """)
 
     # user input
-    name=input('Enter name to search: ')
-    lst=[]
-    inHere=False
+    name = input('Enter name to search: ')
+    guest_list = []
+    in_here = False
+
+    # appending all elements in the json to the list
     for elems in buy.open_json():
-        lst.append(elems)
-    
-    for elems in lst:
+        guest_list.append(elems)
+
+    # looping through all elements to find the elements with that specific name
+    #   if found, prints all of that element's data
+    for elems in guest_list:
         if (name in elems['Name']):
             print("---------------------------")
             print("Name: "+str(elems['Name']))
@@ -28,9 +34,10 @@ def search():
             print("Total Price: $" + str(elems['Price']))
             print("Rows: #"+str(elems['Rows']))
             print(" ")
-            inHere=True
+            in_here = True
         else:
             continue
 
-    if (inHere==False):
+    # if name is not found
+    if (in_here == False):
         print("That name is not present in our database")
